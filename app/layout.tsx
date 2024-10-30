@@ -47,6 +47,9 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/images/favicon.png" }],
   },
+  verification: {
+    google: "O6V8a2tf9TRaovu15ZZlO_iexgGMItMZcV9scrHC-rI",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -65,6 +68,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('config', 'G-O6V8a2tf9TRaovu15ZZlO_iexgGMItMZcV9scrHC-rI');
           `}
         </Script>
+        <meta
+          name="google-site-verification"
+          content="O6V8a2tf9TRaovu15ZZlO_iexgGMItMZcV9scrHC-rI"
+        />
       </head>
       <body>
         <Navbar />
