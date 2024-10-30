@@ -1,9 +1,18 @@
 "use client";
 
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
-export default function ConfirmationPage() {
+export default function ConfirmationPage(): JSX.Element {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ConfirmationContent />
+    </Suspense>
+  );
+}
+
+function ConfirmationContent(): JSX.Element {
   const searchParams = useSearchParams();
   const name = searchParams?.get("name") ?? "User";
   const email = searchParams?.get("email") ?? "your email";

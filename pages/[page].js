@@ -1,15 +1,15 @@
 import Head from "next/head";
 
-export default function Page({ pageData }) {
-  if (!pageData) {
+export default function Page({ data }) {
+  if (!data) {
     return <div>Loading...</div>;
   }
 
   return (
     <>
       <Head>
-        <title>{pageData.title} | Email Design With HTML & CSS By Akon M Hasib</title>
-        <meta name="description" content={pageData.description} />
+        <title>{data.title} | Email Design With HTML & CSS By Akon M Hasib</title>
+        <meta name="description" content={data.description} />
       </Head>
       {/* page content */}
     </>
@@ -18,17 +18,11 @@ export default function Page({ pageData }) {
 
 export async function getStaticProps({ params }) {
   try {
-    const pageData = await fetchPageData(params.page); // Replace with your actual data fetching function
-
-    if (!pageData) {
-      return {
-        notFound: true,
-      };
-    }
+    const pageData = await fetchPageData(params.page);
 
     return {
       props: {
-        pageData,
+        data: pageData || null,
       },
     };
   } catch (error) {
