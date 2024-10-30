@@ -37,7 +37,14 @@ const PAYMENT_INFO = {
 
 const REGULAR_PRICE = "৫০০০";
 const DISCOUNTED_PRICE = "২৫০০";
+const SUPER_DISCOUNTED_PRICE = "১০০০";
 const VALID_COUPON = "50OFF";
+const SUPER_COUPON = "SUPER80";
+
+const isSuperCouponValid = () => {
+  const expirationDate = new Date("2024-03-24"); // Set this to 7 days from today
+  return new Date() <= expirationDate;
+};
 
 export default function ProfessionalEnroll() {
   const [appliedCoupon, setAppliedCoupon] = React.useState("");
@@ -58,9 +65,18 @@ export default function ProfessionalEnroll() {
 
   const paymentmethod = watch("paymentmethod");
   const couponCode = watch("coupon");
-  const finalPrice = appliedCoupon === VALID_COUPON ? DISCOUNTED_PRICE : REGULAR_PRICE;
+  const finalPrice = React.useMemo(() => {
+    if (appliedCoupon === SUPER_COUPON && isSuperCouponValid()) {
+      return SUPER_DISCOUNTED_PRICE;
+    }
+    return appliedCoupon === VALID_COUPON ? DISCOUNTED_PRICE : REGULAR_PRICE;
+  }, [appliedCoupon]);
 
   const handleApplyCoupon = () => {
+    if (couponCode === SUPER_COUPON && !isSuperCouponValid()) {
+      alert("এই কুপনের মেয়াদ শেষ হয়ে গেছে!");
+      return;
+    }
     setAppliedCoupon(couponCode);
   };
 
