@@ -271,9 +271,7 @@ export default function CoursePage() {
               </div>
               <div>
                 <p className="font-semibold">মোট ভিডিও</p>
-                <p className="text-gray-600">
-                  {modules.reduce((acc, module) => acc + parseInt(module.videos), 0)} টি লেসন
-                </p>
+                <p className="text-gray-600">৯৮ টি লেসন</p>
               </div>
               <div>
                 <p className="font-semibold">মোট সময়</p>
@@ -380,7 +378,7 @@ export default function CoursePage() {
 
         {/* Testimonials */}
         <div className="mt-16">
-          <h2 className="text-2xl font-semibold mb-8">ছাত্রার মতামত</h2>
+          <h2 className="text-2xl font-semibold mb-8">ছাত্রছাত্রীদের মতামত</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-sm border">
