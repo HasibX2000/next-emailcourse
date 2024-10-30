@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <header className="bg-white shadow-sm py-2  z-50">
       <Container className="flex items-center justify-between">
-        <Link href="/utils" className="transition-transform hover:scale-105">
+        <Link href="/" className="transition-transform hover:scale-105">
           <Image
             src="/images/logo.png"
             alt="Akon M Hasib"

@@ -365,7 +365,7 @@ export default function CoursePage() {
         {/* Instructor section */}
         <div className="mt-16 bg-gray-50 p-8 rounded-lg">
           <h2 className="text-2xl font-semibold mb-6">আপনার ইনস্ট্রাক্টর</h2>
-          <div className="flex items-start gap-6">
+          <div className="flex flex-col md:flex-row items-start gap-6">
             <div className="relative w-24 h-24 rounded-full overflow-hidden flex-shrink-0">
               <Image src={instructor.avatar} alt={instructor.name} fill className="object-cover" />
             </div>
