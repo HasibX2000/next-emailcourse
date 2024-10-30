@@ -6,7 +6,7 @@ import Container from "./Container";
 const NAV_LINKS = [
   {
     text: "যোগাযোগ",
-    link: "/contact",
+    link: "https://wa.me/8801754752096",
     className:
       "bg-primary hover:bg-dark text-white px-6 py-2 rounded-full transition-colors duration-300",
   },
