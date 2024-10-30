@@ -42,7 +42,7 @@ const VALID_COUPON = "50OFF";
 const SUPER_COUPON = "SUPER80";
 
 const isSuperCouponValid = () => {
-  const expirationDate = new Date("2024-10-07");
+  const expirationDate = new Date("2024-11-07");
   return new Date() <= expirationDate;
 };
 
