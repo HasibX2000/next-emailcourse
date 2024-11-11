@@ -11,7 +11,7 @@ interface EnrollmentFormData {
   name: string;
   email: string;
   phone: string;
-  paymentmethod: "bkash" | "rocket" | "bank";
+  paymentmethod: "bkash" | "rocket" | "nagad" | "bank";
   trxid: string;
   coupon: string;
   course: "professional";
@@ -26,6 +26,9 @@ const PAYMENT_INFO = {
     number: "01754752096-2",
     qr: "/images/rocket.webp",
   },
+   nagad: {
+    number: "01754752096",
+  },
   bank: {
     name: "Sonali Bank PLC",
     account: "0304601001296",
@@ -37,12 +40,12 @@ const PAYMENT_INFO = {
 
 const REGULAR_PRICE = "৫০০০";
 const DISCOUNTED_PRICE = "২৫০০";
-const SUPER_DISCOUNTED_PRICE = "১০০০";
+const SUPER_DISCOUNTED_PRICE = "৪৯৯";
 const VALID_COUPON = "50OFF";
-const SUPER_COUPON = "SUPER80";
+const SUPER_COUPON = "SUPER11";
 
 const isSuperCouponValid = () => {
-  const expirationDate = new Date("2024-11-07");
+  const expirationDate = new Date("2024-11-12");
   return new Date() <= expirationDate;
 };
 
@@ -86,8 +89,8 @@ export default function ProfessionalEnroll() {
       return (
         <div className="flex flex-col gap-2">
           <h2 className="font-bold text-lg">ব্যাংক ট্রান্সফার তথ্য</h2>
-          <p className="font-bold text-sm bg-yellow-400 px-3 ">
-            অবশ্যই NBSP করবেন, না হলে পেমেন্ট কনফার্ম হওয়ার আগ পর্যন্ত একসেস পাবেন না
+          <p className="font-bold text-sm bg-yellow-500 px-3 ">
+          <span className="font-bold">{finalPrice} টাকা</span> সেন্ড মানি করুন | অবশ্যই NBSP করবেন, না হলে পেমেন্ট কনফার্ম হওয়ার আগ পর্যন্ত একসেস পাবেন না
           </p>
           <div className="grid grid-cols-2 gap-2 text-sm">
             <span className="font-medium">ব্যাংকের নাম:</span>
@@ -110,7 +113,7 @@ export default function ProfessionalEnroll() {
       <div className="space-y-4">
         <p className="text-sm">
           <span className="font-bold">{finalPrice} টাকা</span> সেন্ড মানি করুন এই নম্বরে:{" "}
-          <span className="bg-yellow-400 px-2 py-1 rounded">{info.number}</span>
+          <span className="bg-yellow-500 px-2 py-1 rounded">{info.number}</span>
         </p>
         {info.qr && (
           <div className="bg-white p-4 rounded-lg inline-block">
@@ -186,7 +189,7 @@ export default function ProfessionalEnroll() {
             <h2 className="text-xl font-semibold mb-4">পেমেন্টের তথ্য</h2>
 
             {/* Coupon Field */}
-            <div className="flex gap-2">
+            <div className="flex flex-col gap-2">
               <input
                 {...register("coupon")}
                 placeholder="কুপন কোড আছে? না থাকলে হোয়াটসঅ্যাপে যোগাযোগ করুন"
