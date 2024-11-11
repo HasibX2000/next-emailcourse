@@ -11,7 +11,7 @@ interface EnrollmentFormData {
   name: string;
   email: string;
   phone: string;
-  paymentmethod: "bkash" | "rocket" | "nagad" | "bank";
+  paymentmethod: "bkash" | "rocket" | "bank";
   trxid: string;
   coupon: string;
   course: "professional";
@@ -26,9 +26,7 @@ const PAYMENT_INFO = {
     number: "01754752096-2",
     qr: "/images/rocket.webp",
   },
-   nagad: {
-    number: "01754752096",
-  },
+
   bank: {
     name: "Sonali Bank PLC",
     account: "0304601001296",
@@ -45,7 +43,7 @@ const VALID_COUPON = "50OFF";
 const SUPER_COUPON = "SUPER11";
 
 const isSuperCouponValid = () => {
-  const expirationDate = new Date("2024-11-12");
+  const expirationDate = new Date("2024-11-15");
   return new Date() <= expirationDate;
 };
 
@@ -90,7 +88,8 @@ export default function ProfessionalEnroll() {
         <div className="flex flex-col gap-2">
           <h2 className="font-bold text-lg">ব্যাংক ট্রান্সফার তথ্য</h2>
           <p className="font-bold text-sm bg-yellow-500 px-3 ">
-          <span className="font-bold">{finalPrice} টাকা</span> সেন্ড মানি করুন | অবশ্যই NBSP করবেন, না হলে পেমেন্ট কনফার্ম হওয়ার আগ পর্যন্ত একসেস পাবেন না
+            <span className="font-bold">{finalPrice} টাকা</span> সেন্ড মানি করুন | অবশ্যই NBSP
+            করবেন, না হলে পেমেন্ট কনফার্ম হওয়ার আগ পর্যন্ত একসেস পাবেন না
           </p>
           <div className="grid grid-cols-2 gap-2 text-sm">
             <span className="font-medium">ব্যাংকের নাম:</span>
