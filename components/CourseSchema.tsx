@@ -6,23 +6,23 @@ export default function CourseSchema() {
         __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Course",
-          name: "এইচটিএমএল এবং সিএসএস দিয়ে ইমেইল ডিজাইন",
+          name: "HTML and CSS Email Design",
           description:
-            "পেশাদার ইমেইল টেমপ্লেট ডিজাইন এবং ডেভেলপমেন্টের জন্য সম্পূর্ণ এইচটিএমএল এবং সিএসএস কোর্স।",
+            "Complete HTML and CSS course for professional email template design and development.",
           provider: {
             "@type": "Organization",
-            name: "আকনস জোন",
+            name: "Acons Zone",
             sameAs: "https://htmlemailcourse.online",
           },
           courseCode: "EMAIL-HTML-CSS",
-          educationalLevel: "বিগিনার থেকে অ্যাডভান্সড",
+          educationalLevel: "Beginner to Advanced",
           skills: [
-            "এইচটিএমএল ইমেইল কোডিং",
-            "ইমেইলের জন্য সিএসএস",
-            "রেসপনসিভ ইমেইল ডিজাইন",
-            "ইমেইল ক্লায়েন্ট কম্প্যাটিবিলিটি",
-            "ইমেইল টেস্টিং",
-            "টেমপ্লেট ডেভেলপমেন্ট",
+            "HTML Email Coding",
+            "CSS for Emails",
+            "Responsive Email Design",
+            "Email Client Compatibility",
+            "Email Testing",
+            "Template Development",
           ],
           teaches: [
             "HTML Tables for Emails",

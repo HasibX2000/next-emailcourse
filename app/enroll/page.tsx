@@ -26,7 +26,6 @@ const PAYMENT_INFO = {
     number: "01754752096-2",
     qr: "/images/rocket.webp",
   },
-
   bank: {
     name: "Sonali Bank PLC",
     account: "0304601001296",
@@ -36,14 +35,12 @@ const PAYMENT_INFO = {
   },
 };
 
-const REGULAR_PRICE = "৫০০০";
-const DISCOUNTED_PRICE = "২৫০০";
-const SUPER_DISCOUNTED_PRICE = "৪৯৯";
-const VALID_COUPON = "50OFF";
-const SUPER_COUPON = "SUPER11";
+const REGULAR_PRICE = "2999";
+const NEW_YEAR_PRICE = "555";
+const NEW_YEAR_COUPON = "NEWYEAR555";
 
-const isSuperCouponValid = () => {
-  const expirationDate = new Date("2024-11-15");
+const isNewYearCouponValid = () => {
+  const expirationDate = new Date("2024-12-31");
   return new Date() <= expirationDate;
 };
 
@@ -67,15 +64,15 @@ export default function ProfessionalEnroll() {
   const paymentmethod = watch("paymentmethod");
   const couponCode = watch("coupon");
   const finalPrice = React.useMemo(() => {
-    if (appliedCoupon === SUPER_COUPON && isSuperCouponValid()) {
-      return SUPER_DISCOUNTED_PRICE;
+    if (appliedCoupon === NEW_YEAR_COUPON && isNewYearCouponValid()) {
+      return NEW_YEAR_PRICE;
     }
-    return appliedCoupon === VALID_COUPON ? DISCOUNTED_PRICE : REGULAR_PRICE;
+    return REGULAR_PRICE;
   }, [appliedCoupon]);
 
   const handleApplyCoupon = () => {
-    if (couponCode === SUPER_COUPON && !isSuperCouponValid()) {
-      alert("এই কুপনের মেয়াদ শেষ হয়ে গেছে!");
+    if (couponCode === NEW_YEAR_COUPON && !isNewYearCouponValid()) {
+      alert("This coupon has expired!");
       return;
     }
     setAppliedCoupon(couponCode);
@@ -86,21 +83,21 @@ export default function ProfessionalEnroll() {
       const bankInfo = PAYMENT_INFO.bank;
       return (
         <div className="flex flex-col gap-2">
-          <h2 className="font-bold text-lg">ব্যাংক ট্রান্সফার তথ্য</h2>
+          <h2 className="font-bold text-lg">Bank Transfer Information</h2>
           <p className="font-bold text-sm bg-yellow-500 px-3 ">
-            <span className="font-bold">{finalPrice} টাকা</span> সেন্ড মানি করুন | অবশ্যই NBSP
-            করবেন, না হলে পেমেন্ট কনফার্ম হওয়ার আগ পর্যন্ত একসেস পাবেন না
+            <span className="font-bold">Send {finalPrice} Taka</span> | You must use NBSP, otherwise
+            you won&apos;t get access until payment is confirmed
           </p>
           <div className="grid grid-cols-2 gap-2 text-sm">
-            <span className="font-medium">ব্যাংকের নাম:</span>
+            <span className="font-medium">Bank Name:</span>
             <span>{bankInfo.name}</span>
-            <span className="font-medium">অ্যাকাউন্ট নাম:</span>
+            <span className="font-medium">Account Name:</span>
             <span>{bankInfo.accountName}</span>
-            <span className="font-medium">অ্যাকাউন্ট নম্বর:</span>
+            <span className="font-medium">Account Number:</span>
             <span>{bankInfo.account}</span>
-            <span className="font-medium">শাখা:</span>
+            <span className="font-medium">Branch:</span>
             <span>{bankInfo.branch}</span>
-            <span className="font-medium">শাখা কোড:</span>
+            <span className="font-medium">Branch Code:</span>
             <span>{bankInfo.branchCode}</span>
           </div>
         </div>
@@ -111,14 +108,14 @@ export default function ProfessionalEnroll() {
     return (
       <div className="space-y-4">
         <p className="text-sm">
-          <span className="font-bold">{finalPrice} টাকা</span> সেন্ড মানি করুন এই নম্বরে:{" "}
+          <span className="font-bold">Send {finalPrice} Taka</span> to this number:{" "}
           <span className="bg-yellow-500 px-2 py-1 rounded">{info.number}</span>
         </p>
         {info.qr && (
           <div className="bg-white p-4 rounded-lg inline-block">
             <Image
               src={info.qr}
-              alt={`${paymentmethod} QR কোড`}
+              alt={`${paymentmethod} QR Code`}
               width={128}
               height={128}
               className="w-32"
@@ -150,33 +147,33 @@ export default function ProfessionalEnroll() {
   return (
     <Container>
       <div className="container mx-auto py-10 px-4">
-        <h1 className="text-3xl font-bold text-center mb-8">কোর্স এনরোলমেন্ট</h1>
+        <h1 className="text-3xl font-bold text-center mb-8">Course Enrollment</h1>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           {/* Personal Information */}
           <section className="bg-white shadow-lg rounded-xl p-6 space-y-4">
-            <h2 className="text-xl font-semibold mb-4">ব্যক্তিগত তথ্য</h2>
+            <h2 className="text-xl font-semibold mb-4">Personal Information</h2>
 
             <div className="space-y-4">
               <InputField
-                label="পূর্ণ নাম"
-                {...register("name", { required: "নাম আবশ্যক" })}
+                label="Full Name"
+                {...register("name", { required: "Name is required" })}
                 error={errors.name}
-                placeholder="আপনার পূর্ণ নাম লিখুন"
+                placeholder="Enter your full name"
               />
 
               <InputField
-                label="ইমেইল ঠিকানা"
+                label="Email Address"
                 type="email"
-                {...register("email", { required: "ইমেইল আবশ্যক" })}
+                {...register("email", { required: "Email is required" })}
                 error={errors.email}
                 placeholder="your.email@gmail.com"
-                hint="কোর্স অ্যাক্সেসের জন্য জিমেইল ব্যবহার করুন"
+                hint="Use Gmail for course access"
               />
 
               <InputField
-                label="ফোন নম্বর"
-                {...register("phone", { required: "ফোন নম্বর আবশ্যক" })}
+                label="Phone Number"
+                {...register("phone", { required: "Phone number is required" })}
                 error={errors.phone}
                 placeholder="01XXXXXXXXX"
               />
@@ -185,13 +182,13 @@ export default function ProfessionalEnroll() {
 
           {/* Payment Section */}
           <section className="bg-white shadow-lg rounded-xl p-6 space-y-4">
-            <h2 className="text-xl font-semibold mb-4">পেমেন্টের তথ্য</h2>
+            <h2 className="text-xl font-semibold mb-4">Payment Information</h2>
 
             {/* Coupon Field */}
             <div className="flex flex-col gap-2">
               <input
                 {...register("coupon")}
-                placeholder="কুপন কোড আছে? না থাকলে হোয়াটসঅ্যাপে যোগাযোগ করুন"
+                placeholder="Have a coupon code? If not, contact us on WhatsApp"
                 className="flex-1 px-4 py-2 border rounded-lg"
               />
               <button
@@ -199,17 +196,17 @@ export default function ProfessionalEnroll() {
                 onClick={handleApplyCoupon}
                 className="px-6 py-2 bg-primary text-white rounded-lg hover:bg-dark"
               >
-                অ্যাপ্লাই করুন
+                Apply
               </button>
             </div>
 
             {/* Payment Method Selection */}
             <div className="space-y-2">
-              <label className="block font-medium">পেমেন্ট মেথড সিলেক্ট করুন</label>
+              <label className="block font-medium">Select Payment Method</label>
               <select {...register("paymentmethod")} className="w-full px-4 py-2 border rounded-lg">
-                <option value="bkash">বিকাশ</option>
-                <option value="rocket">রকেট</option>
-                <option value="bank">ব্যাংক ট্রান্সফার</option>
+                <option value="bkash">bKash</option>
+                <option value="rocket">Rocket</option>
+                <option value="bank">Bank Transfer</option>
               </select>
             </div>
 
@@ -218,10 +215,10 @@ export default function ProfessionalEnroll() {
 
             {/* Transaction ID */}
             <InputField
-              label="ট্রাঞ্জেকশন আইডি"
-              {...register("trxid", { required: "ট্রাঞ্জেকশন আইডি অবশ্যই দিতে হবে" })}
+              label="Transaction ID"
+              {...register("trxid", { required: "Transaction ID is required" })}
               error={errors.trxid}
-              placeholder="এখানে ট্রাঞ্জেকশন আইডি লিখুন"
+              placeholder="Enter your transaction ID here"
             />
           </section>
 
@@ -231,7 +228,7 @@ export default function ProfessionalEnroll() {
             className="w-full py-3 bg-primary text-white rounded-lg font-medium hover:bg-dark 
                      disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
           >
-            {isSubmitting ? "প্রক্রিয়াকরণ হচ্ছে..." : "এনরোলমেন্ট সম্পন্ন করুন"}
+            {isSubmitting ? "Processing..." : "Complete Enrollment"}
           </button>
         </form>
       </div>

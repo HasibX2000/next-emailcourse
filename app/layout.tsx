@@ -1,39 +1,13 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Script from "next/script";
 
-const kohinoorBangla = localFont({
-  src: [
-    {
-      path: "../public/fonts/KohinoorBangla-Light.woff2",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/KohinoorBangla-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/KohinoorBangla-Medium.woff2",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/KohinoorBangla-Semibold.woff2",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/KohinoorBangla-Bold.woff2",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-  variable: "--font-kohinoor",
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -54,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={kohinoorBangla.variable}>
+    <html lang="en" className={inter.variable}>
       <head>
         <Script
           strategy="afterInteractive"
