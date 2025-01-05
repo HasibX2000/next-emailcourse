@@ -190,11 +190,35 @@ const instructor = {
   name: "Akon M Hasib",
   title: "Senior Email Developer | Frontend Developer",
   bio: "Experienced email developer working with major brands. Passionate about teaching and helping others master email development.",
-  avatar: "/images/akon_m_hasib.jpg",
+  avatar: "/images/akon-m-hasib.webp",
   socialLinks: {
     facebook: "https://www.facebook.com/groups/akonszone",
     youtube: "https://www.youtube.com/@AkonsZone",
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  name: "Email Design With HTML & CSS",
+  description:
+    "Master the art of email template design through our comprehensive course. Learn everything from HTML and CSS basics to advanced email design techniques.",
+  provider: {
+    "@type": "Person",
+    name: "Akon M Hasib",
+    sameAs: ["https://www.facebook.com/groups/akonszone", "https://www.youtube.com/@AkonsZone"],
+  },
+  coursePrerequisites: "Basic computer knowledge",
+  educationalLevel: "Beginner to Advanced",
+  teaches: [
+    "HTML Email Development",
+    "CSS for Email",
+    "Responsive Email Design",
+    "Email Template Creation",
+  ],
+  timeRequired: "PT19H18M",
+  price: "2999",
+  priceCurrency: "BDT",
 };
 
 export default function CoursePage() {
@@ -202,11 +226,15 @@ export default function CoursePage() {
 
   return (
     <main className="py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Container>
         {/* Hero Image Section */}
         <div className="mb-8 relative w-full aspect-[16/9] rounded-xl overflow-hidden">
           <Image
-            src="/images/professional.webp"
+            src="/images/HTML-Email-Template-Design.webp"
             alt="Professional Email Design Course"
             fill
             className="object-cover"

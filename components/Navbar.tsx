@@ -17,7 +17,7 @@ const Navbar = () => {
     <header className="bg-white shadow-sm py-2  z-50">
       <Container className="flex items-center justify-between">
         <Link href="/" className="transition-transform hover:scale-105">
-          <Image src="/images/logo.png" alt="Akon M Hasib" priority width={100} height={100} />
+          <Image src="/images/logo.png" alt="Akon M Hasib" priority width={200} height={40} />
         </Link>
 
         <nav className="flex items-center gap-6">

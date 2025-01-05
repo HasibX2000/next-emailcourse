@@ -2,52 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Font faces */
-@font-face {
-  font-family: "Kohinoor Bangla";
-  src: url("/fonts/KohinoorBangla-Light.woff2") format("woff2"),
-    url("/fonts/KohinoorBangla-Light.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Kohinoor Bangla";
-  src: url("/fonts/KohinoorBangla-Regular.woff2") format("woff2"),
-    url("/fonts/KohinoorBangla-Regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Kohinoor Bangla";
-  src: url("/fonts/KohinoorBangla-Medium.woff2") format("woff2"),
-    url("/fonts/KohinoorBangla-Medium.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Kohinoor Bangla";
-  src: url("/fonts/KohinoorBangla-Semibold.woff2") format("woff2"),
-    url("/fonts/KohinoorBangla-Semibold.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Kohinoor Bangla";
-  src: url("/fonts/KohinoorBangla-Bold.woff2") format("woff2"),
-    url("/fonts/KohinoorBangla-Bold.woff") format("woff");
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -61,7 +15,8 @@
 }
 
 body {
-  font-family: "Kohinoor Bangla", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, sans-serif;
   color: var(--foreground);
   background: var(--background);
 }

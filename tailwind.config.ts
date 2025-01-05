@@ -11,12 +11,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#6410F0",
-        dark: "#474649",
+        primary: "#E61C20",
+        dark: "#474747",
       },
     },
     fontFamily: {
-      sans: ["Inter", "sans-serif"],
+      sans: ["Montserrat", "sans-serif"],
     },
     container: {
       center: true,

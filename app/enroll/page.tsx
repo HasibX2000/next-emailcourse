@@ -84,7 +84,7 @@ export default function ProfessionalEnroll() {
       return (
         <div className="flex flex-col gap-2">
           <h2 className="font-bold text-lg">Bank Transfer Information</h2>
-          <p className="font-bold text-sm bg-yellow-500 px-3 ">
+          <p className="font-bold text-primary py-2 italic ">
             <span className="font-bold">Send {finalPrice} Taka</span> | You must use NBSP, otherwise
             you won&apos;t get access until payment is confirmed
           </p>
@@ -107,9 +107,9 @@ export default function ProfessionalEnroll() {
     const info = PAYMENT_INFO[paymentmethod];
     return (
       <div className="space-y-4">
-        <p className="text-sm">
+        <p className="text-sm leading-6">
           <span className="font-bold">Send {finalPrice} Taka</span> to this number:{" "}
-          <span className="bg-yellow-500 px-2 py-1 rounded">{info.number}</span>
+          <span className="bg-yellow-300 font-bold px-3 py-1 rounded">{info.number}</span>
         </p>
         {info.qr && (
           <div className="bg-white p-4 rounded-lg inline-block">
