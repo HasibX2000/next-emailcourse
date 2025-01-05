@@ -20,6 +20,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const feed = generateRssFeed(modules);
 
+    if (!feed) {
+      throw new Error("Failed to generate feed");
+    }
+
     res.setHeader("Content-Type", "application/xml");
     res.setHeader("Cache-Control", "public, max-age=3600, s-maxage=3600");
     res.write(feed.rss2());
