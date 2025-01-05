@@ -6,7 +6,7 @@ export default function OfflinePage() {
     <div className="min-h-screen flex items-center justify-center px-4">
       <div className="text-center">
         <WifiOff className="w-16 h-16 mx-auto mb-4 text-gray-400" />
-        <h1 className="text-2xl font-bold mb-2">You're Offline</h1>
+        <h1 className="text-2xl font-bold mb-2">You&apos;re Offline</h1>
         <p className="text-gray-600 mb-4">Please check your internet connection and try again.</p>
         <Link
           href="/"
