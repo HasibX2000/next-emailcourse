@@ -7,7 +7,7 @@ export const measurePagePerformance = () => {
       .getEntriesByType("layout-shift")
       .reduce((sum, entry: any) => sum + entry.value, 0);
 
-    const fid = performance.getEntriesByType("first-input")[0];
+    const fid = performance.getEntriesByType("first-input")[0] as PerformanceEventTiming;
     const lcp = performance.getEntriesByType("largest-contentful-paint").slice(-1)[0];
 
     return {
