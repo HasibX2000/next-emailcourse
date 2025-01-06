@@ -10,10 +10,10 @@ interface Module {
 }
 
 interface ModulePageProps {
-  module: Module | null; // Allow null for error handling
+  moduleData: Module | null; // Allow null for error handling
 }
 
-export default function ModulePage({ module }: ModulePageProps) {
+export default function ModulePage({ moduleData }: ModulePageProps) {
   const router = useRouter();
 
   // Handle loading state
@@ -21,7 +21,7 @@ export default function ModulePage({ module }: ModulePageProps) {
     return <div>Loading...</div>;
   }
 
-  if (!module) {
+  if (!moduleData) {
     return <div>Module not found</div>; // Handle the case where the module is not found
   }
 
@@ -29,9 +29,9 @@ export default function ModulePage({ module }: ModulePageProps) {
     <>
       <SEO
         page="modules"
-        customTitle={`${module.title} | Email Design Course Module`}
-        customDescription={module.description}
-        customKeywords={module.keywords}
+        customTitle={`${moduleData.title} | Email Design Course Module`}
+        customDescription={moduleData.description}
+        customKeywords={moduleData.keywords}
       />
 
       <main className="py-8">
@@ -39,15 +39,15 @@ export default function ModulePage({ module }: ModulePageProps) {
           <Breadcrumbs items={breadcrumbItems} />
 
           <article>
-            <h1 className="text-3xl font-bold mb-6">{module.title}</h1>
-            <p className="text-gray-600 mb-8">{module.description}</p>
+            <h1 className="text-3xl font-bold mb-6">{moduleData.title}</h1>
+            <p className="text-gray-600 mb-8">{moduleData.description}</p>
 
             <section aria-labelledby="lessons-title">
               <h2 id="lessons-title" className="text-2xl font-semibold mb-4">
                 Module Lessons
               </h2>
               <div className="space-y-4">
-                {module.lessons.map((lesson) => (
+                {moduleData.lessons.map((lesson) => (
                   <div
                     key={lesson.id}
                     className="border rounded-lg p-4 hover:border-primary transition-colors"
@@ -77,9 +77,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params!;
-  const module = await fetchModuleBySlug(slug); // Replace with your data fetching logic
+  const moduleData = await fetchModuleBySlug(slug); // Replace with your data fetching logic
 
-  if (!module) {
+  if (!moduleData) {
     return {
       notFound: true, // Return 404 if the module is not found
     };
@@ -87,7 +87,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: {
-      module,
+      moduleData,
     },
     revalidate: 10, // Optional: revalidate every 10 seconds
   };
