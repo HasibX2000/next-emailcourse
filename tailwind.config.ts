@@ -11,12 +11,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+<<<<<<< HEAD
         primary: "#E61C20",
         dark: "#474747",
       },
     },
     fontFamily: {
       sans: ["Montserrat", "sans-serif"],
+=======
+        primary: "#E5202C",
+        secondary: "#FF5555",
+        dark: "#424242",
+      },
+    },
+    fontFamily: {
+      sans: ["montserrat", "sans-serif"],
+>>>>>>> new-branch
     },
     container: {
       center: true,

@@ -326,7 +326,7 @@ export default function CoursePage() {
 
             <button
               onClick={() => router.push("/enroll")}
-              className="w-full bg-primary text-white py-3 rounded-md font-semibold hover:bg-dark transition-colors"
+              className="w-full bg-primary text-white py-3 rounded-md font-semibold hover:bg-secondary transition-colors"
             >
               Enroll Now
             </button>

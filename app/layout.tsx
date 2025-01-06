@@ -7,8 +7,11 @@ import Script from "next/script";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
+<<<<<<< HEAD
   weight: ["400", "500", "600", "700"],
   display: "swap",
+=======
+>>>>>>> new-branch
   variable: "--font-montserrat",
 });
 

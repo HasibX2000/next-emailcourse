@@ -8,7 +8,7 @@ const NAV_LINKS = [
     text: "Contact",
     link: "https://wa.me/8801754752096",
     className:
-      "bg-primary hover:bg-dark text-white px-6 py-2 rounded-full transition-colors duration-300",
+      "bg-primary hover:bg-secondary text-white px-6 py-2 rounded-full transition-colors duration-300",
   },
 ];
 
