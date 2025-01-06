@@ -190,7 +190,7 @@ const instructor = {
   name: "Akon M Hasib",
   title: "Senior Email Developer | Frontend Developer",
   bio: "Experienced email developer working with major brands. Passionate about teaching and helping others master email development.",
-  avatar: "/images/akon_m_hasib.jpg",
+  avatar: "/images/akon-m-hasib.webp",
   socialLinks: {
     facebook: "https://www.facebook.com/groups/akonszone",
     youtube: "https://www.youtube.com/@AkonsZone",
@@ -206,7 +206,7 @@ export default function CoursePage() {
         {/* Hero Image Section */}
         <div className="mb-8 relative w-full aspect-[16/9] rounded-xl overflow-hidden">
           <Image
-            src="/images/professional.webp"
+            src="/images/HTML-Email-Template-Design.webp"
             alt="Professional Email Design Course"
             fill
             className="object-cover"
@@ -298,7 +298,7 @@ export default function CoursePage() {
 
             <button
               onClick={() => router.push("/enroll")}
-              className="w-full bg-primary text-white py-3 rounded-md font-semibold hover:bg-dark transition-colors"
+              className="w-full bg-primary text-white py-3 rounded-md font-semibold hover:bg-secondary transition-colors"
             >
               Enroll Now
             </button>

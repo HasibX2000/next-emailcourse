@@ -194,7 +194,7 @@ export default function ProfessionalEnroll() {
               <button
                 type="button"
                 onClick={handleApplyCoupon}
-                className="px-6 py-2 bg-primary text-white rounded-lg hover:bg-dark"
+                className="px-6 py-2 bg-primary text-white rounded-lg hover:bg-secondary duration-150"
               >
                 Apply
               </button>
@@ -225,8 +225,8 @@ export default function ProfessionalEnroll() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-3 bg-primary text-white rounded-lg font-medium hover:bg-dark 
-                     disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+            className="w-full py-3 bg-primary text-white rounded-lg font-medium hover:bg-secondary 
+                     disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors duration-150"
           >
             {isSubmitting ? "Processing..." : "Complete Enrollment"}
           </button>
